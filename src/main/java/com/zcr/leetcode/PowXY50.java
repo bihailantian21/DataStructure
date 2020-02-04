@@ -46,6 +46,7 @@ package com.zcr.leetcode;
 public class PowXY50 {
 
     /**
+     * 非递归的快速幂乘法
      * 2^4=4^2=16
      * 把pow/2，number做一个二次方。
      *
@@ -79,17 +80,59 @@ public class PowXY50 {
             return 0;
         }
         if (y < 0) {
-            return 1 / (y * pow(x,-(y+1)));
+            //return 1 / (y * pow(x,-(y+1)));
+            //return 1 / pow(x,-y);
+            if (y == Integer.MIN_VALUE) {
+                return 1.0 / (pow(x, Integer.MAX_VALUE) * x);
+                //return 1.0 / (pow(x,-(Integer.MIN_VALUE+1)) * x);
+            } else {
+                return 1.0 / pow(x, -y);
+            }
+
         }
         double result = 1;
         while (y > 1) {
             if (y % 2 != 0) {
                 result *= x;
             }
-            y /= 2;
+            //y /= 2;
+            y >>= 2;
             x = x * x;
         }
         result *= x;
         return result;
+    }
+
+
+    /**
+     * 递归的写法
+     * @param base
+     * @param exponent
+     * @return
+     */
+    public double Power(double base, int exponent) {
+        return myPow(base, exponent);
+    }
+
+    public double myPow(double x, int n) {
+        if (n > 0) {
+            return pow2(x, n);
+        } else {
+            if (n == Integer.MIN_VALUE) {
+                // MAX_VALUE = -(Integer.MIN_VALUE + 1)
+                return 1.0 / (pow2(x, -(Integer.MIN_VALUE + 1)) * x);
+            }
+            return 1.0 / pow2(x, -n);
+        }
+    }
+
+    public double pow2(double x, int n) {
+        if (n == 0)
+            return 1;
+        double half = pow2(x, n / 2);
+        if (n % 2 == 0)
+            return half * half;
+        else
+            return x * half * half;
     }
 }

@@ -57,7 +57,7 @@ public class ArrayStackDemo {
 class ArrayStack {
     private int maxSize;//栈的大小
     private int[] stack;//数组，数组模拟栈，数据就放在该数组
-    private int top = -1;
+    private int top = -1;//指向当前栈顶元素
 
     //构造器
     public ArrayStack(int maxSize) {
@@ -82,7 +82,7 @@ class ArrayStack {
             System.out.println("栈满");
             return;
         }
-        top++;
+        top++;//先移动当前指针，然后在当前指针位置上放入元素
         stack[top] = value;
     }
 
@@ -94,7 +94,18 @@ class ArrayStack {
             throw new RuntimeException("栈空，没有数据");
         }
         int value = stack[top];
-        top--;
+        top--;//先将当前指针位置上的元素输出，然后再移动指针
+        return value;
+    }
+
+    //返回栈顶元素，不将栈内的抹掉
+    public int peek() {
+        //先判断栈是否为空
+        if (isEmpty()) {
+            //抛出异常
+            throw new RuntimeException("栈空，没有数据");
+        }
+        int value = stack[top];
         return value;
     }
 

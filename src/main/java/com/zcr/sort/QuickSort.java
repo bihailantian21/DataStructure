@@ -5,6 +5,8 @@ import java.util.Arrays;
 /**
  * @author zcr
  * @date 2019/7/7-12:21
+ *
+ * 快速排序
  */
 public class QuickSort {
 
@@ -65,9 +67,30 @@ public class QuickSort {
     }
 
     //快速排序2
+
+    /**
+     * 快速排序的关键是：先在数组中选择一个数字，然后比它小的数字放在数组左边，比它大的数字放到数组右边
+     *
+     * O(nlogn)    O(nlogn)   O(n^2)   O(nlogn)  不稳定（交换）
+     *
+     * (分治）(挖坑填数)
+     * 1、先从数列中取出一个数作为key值；
+     * 2、将比这个数小的数全部放在它的左边，大于或等于它的数全部放在它的右边；
+     * 3、对左右两个小数列重复第二步，直至各区间只有1个数。
+     *
+     * 经典快排：
+     * 1、把第一个位置的数作为划分值，把小于等于x放左边，大于x放右边。小于等于区域的再这么干，大于区域的再这么干。
+     * 2、经典快排的问题是：划分出来的小于区域和大于区域若总是不平衡的，那么每次都只搞定了一个数，时间复杂度成了O(N^2)最坏情况下。
+     *
+     * 快速排序的缺点：当数组本身就是有序的，则每次都是以最后一个数字作为基准，时间复杂度O(n^2)。
+     *
+     * @param arr
+     * @param low
+     * @param high
+     */
     public static void quickSort2(int[] arr,int low,int high) {
         int pivot;
-        if (low >= high) {
+        if (low >= high) {//重要！等于了就是结束了结束条件！
             return;
         }
         pivot = partition(arr,low,high);
@@ -84,11 +107,14 @@ public class QuickSort {
         while (low < high) { //两侧交替向中间扫描
             while (low < high && a[high] >= pivotKey)
                 high--;
-            swap(a, low, high);  //比基准小的元素放到低端
+            //swap(a, low, high);  //比基准小的元素放到低端
+            a[low] = a[high];
             while (low < high && a[low] <= pivotKey)
                 low++;
-            swap(a, low, high);  //比基准大的元素放到高端
+            //swap(a, low, high);  //比基准大的元素放到高端
+            a[high] = a[low];
         }
+        a[low] = pivotKey;
         return low;     //返回基准元素所在位置
     }
 

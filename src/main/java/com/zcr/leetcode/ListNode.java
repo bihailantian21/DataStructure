@@ -1,9 +1,9 @@
 package com.zcr.leetcode;
 
 public class ListNode {
-    int value;
-    ListNode next;
-    ListNode(int x) { value = x; }
+    public int value;
+    public ListNode next;
+    public ListNode(int x) { value = x; }
     @Override
     public String toString() {
         return "ListNode{" +

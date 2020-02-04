@@ -1,5 +1,35 @@
 package com.zcr.leetcode;
+
+/**
+ * 21. Merge Two Sorted Lists
+ * Merge two sorted linked lists and return it as a new list.
+ * The new list should be made by splicing together the nodes of the first two lists.
+ *
+ * Example:
+ * Input: 1->2->4, 1->3->4
+ * Output: 1->1->2->3->4->4
+ */
+
+/**
+ * 21、合并两个有序链表
+ * 将两个有序链表合并为一个新的有序链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。 
+ *
+ * 示例：
+ * 输入：1->2->4, 1->3->4
+ * 输出：1->1->2->3->4->4
+ */
 public class MergeTwoSortedLists21 {
+
+    /**
+     * 使用类似合并有序数组的方法，外排(归并排序中最后合并的方式)的方式(那个小就先加哪一个)；
+     * 但是这里要注意我这里设置了一个虚拟的头结点，这样的话方便第一个结点的添加和判断；
+     *
+     * 时间：O(n)
+     * 空间：O(m+n)
+     * @param l1
+     * @param l2
+     * @return
+     */
     public static ListNode mergeTwoSortedLists(ListNode l1,ListNode l2) {
         if (l1 == null) return l2;
         if (l2 == null) return l1;

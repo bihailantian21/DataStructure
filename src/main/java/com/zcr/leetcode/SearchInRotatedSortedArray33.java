@@ -38,6 +38,26 @@ package com.zcr.leetcode;
 public class SearchInRotatedSortedArray33 {
 
     /**
+     * 0,1,2,3,4,5,6,7
+     *               7
+     *             6
+     *           5
+     *         4
+     *       3
+     *    2
+     *  1
+     * 0
+     *
+     * 0 1 2 3 4 5 6
+     * 4,5,6,7,0,1,2
+     *       7
+     *     6
+     *   5
+     * 4
+     * ____________
+     *            2
+     *          1
+     *        0
      *
      * RotatedSortedArray:
      * 01234 -> 34012
