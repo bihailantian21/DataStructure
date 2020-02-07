@@ -60,6 +60,21 @@ public class ReConstructBinaryTree6 {
         return root;
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     // 缓存中序遍历数组每个值对应的索引
     //Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: 7
     private Map<Integer, Integer> indexForInOrders = new HashMap<>();
