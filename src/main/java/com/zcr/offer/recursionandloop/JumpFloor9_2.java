@@ -26,7 +26,6 @@ public class JumpFloor9_2 {
             return target;
         return JumpFloor(target - 1) + JumpFloor(target - 2);
     }
-
     /**
      * 采用递归：跳 n 阶台阶，可以先跳 1 阶台阶，此时跳法数目等于再跳 n-1 阶台阶；或者先跳 2 阶台阶，此时跳法数目等于再跳 n-2 阶台阶。
      * 即不同的跳法数等于它们相加起来。
@@ -34,7 +33,7 @@ public class JumpFloor9_2 {
      *
      * 动态规划
      * 时间：O(n)
-     * 空间：O(1)
+     * 空间：O(n)
      *
      * @param target
      * @return

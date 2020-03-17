@@ -54,7 +54,7 @@ public class PartitionArraybyOddandEven14 {
      * [1,7,3,5,4,6,2]
      *
      * 类似与快排
-     * 缺点：不能维持稳定性
+     * 缺点：不能维持稳定性，不能保持相对位置
      * @param arr
      */
     public void reOrderArray2(int [] arr) {

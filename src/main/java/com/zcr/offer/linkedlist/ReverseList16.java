@@ -10,9 +10,10 @@ public class ReverseList16 {
     /**
      * 很经典的翻转链表的题目，使用pre、next指针，pre指向当前cur的前一个，next是当前cur的下一个指针；
      * 然后每次都改变cur的next为pre，循环递推，直到cur = null，最后返回pre；
-     * 1->2->3->4->5
-     * 1<-2->3->4->5
-     *  pre cur next
+     *    1->2->3->4->5
+     *    1<-2->3->4->5
+     * pre head next
+     *     pre head next
      * 1<-2<-3->4->5
      *     2   1
      *      pre cur next

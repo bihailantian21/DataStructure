@@ -101,6 +101,8 @@ public class QuickSort {
      * 对数组a中下标从low到high的元素，选取基准元素pivotKey，
      * 根据与基准比较的大小，将各个元素排到基准元素的两端。
      * 返回值为最后基准元素的位置
+     *
+     * 时间：O(n)
      */
     public static int partition(int[] a, int low, int high) {
         int pivotKey = a[low];  //用第一个元素作为基准元素

@@ -15,6 +15,10 @@ public class Clone26 {
      * 2、设置每个节点的random节点
      * 定位每个节点的random节点要经过O(n)
      * 时间：O(n^2)
+     *
+     *
+     *
+     *
      * 从第二步着手优化时间
      * <p>
      * 思路一－Use HashMap
@@ -33,6 +37,24 @@ public class Clone26 {
      * 遍历到节点 1 时，可以从 map 中得到节点 1 的副本节点1，节点 1 的next 指向节点 2，
      * 所以从 map 中得到节点 2的副本节点 2，然后令 1’.next=2'，副本节点了的 next 指针就设置好了。
      * 同时节点 1的 rand 指向节点 3，所以从map 中得到节点 3 的副本节点 3，然后令 1‘.rand=3'，副本节点1的 rand 指针也设置好了。
+     *
+     * map
+     * key value
+     * 1    1'
+     * 2    2'
+     * 3    3'
+     *
+     * 1'.next=2'
+     * 1'.random=3'
+     *
+     * 2'.next=3'
+     * 2'.random=null
+     *
+     * 3'next=null
+     * 3'.random=1'
+     * 到最后输出所有的副本的指向就行了~
+     *
+     * 副本的指向等于副本的方式~
      *
      * @param pHead
      * @return
@@ -62,6 +84,21 @@ public class Clone26 {
      * 1、第一个步骤，先从左到右遍历一遍链表，对每个结点cur都复制生成相应的副本结点copy，然后把副本结点copy放在cur和下一个要遍历结点的中间；
      * 2、再从左到右遍历一遍链表，在遍历时设置每一个结点的副本结点的random指针；
      * 3、设置完random指针之后，将链表拆成两个链表，返回第二个链表的头部；
+     *
+     * 第一遍：
+     * 1->1'->2->2'->3->3'->4->4'
+     * cur    next
+     *        cur    next
+     *
+     * 第二遍：
+     * cur copycur next
+     *              cur copycur next
+     *
+     *
+     * 第三遍：
+     * cur copycur next
+     *              cur
+     *
      *
      * @param pHead
      * @return

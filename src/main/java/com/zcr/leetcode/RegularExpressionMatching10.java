@@ -160,9 +160,9 @@ public class RegularExpressionMatching10 {
      * A 0 a b c d e
      * B
      * 0
-     * a   T
+     * a   T F F F F
      * b
-     * * F T
+     * * F T T F F F
      * c
      * d
      * e

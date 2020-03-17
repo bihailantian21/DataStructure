@@ -113,7 +113,12 @@ public class MergetSort {
         int p1 = l;
         int p2 = m + 1;
         while (p1 <= m && p2 <= r ) {
-            help[i++] = arr[p1] < arr[p2] ? arr[p1++] : arr[p2++];
+            //help[i++] = arr[p1] < arr[p2] ? arr[p1++] : arr[p2++];
+            if (arr[p1] < arr[p2]) {
+                help[i++] = arr[p1++];
+            } else {
+                help[i++] = arr[p2++];
+            }
         }
         while (p1 <= m) {
             help[i++] = arr[p1++];
@@ -125,6 +130,11 @@ public class MergetSort {
             arr[l + i] = help[i];
         }
     }
+
+
+
+
+
 
 
 
@@ -204,5 +214,119 @@ public class MergetSort {
     }
 }
 
+/*
+1. 给定一个单链表的头节点和整数n，从列表末尾删除第n个节点并返回链表头部，限制在一次操作内完成。
+        例如给定链表：1-> 2-> 3-> 4-> 5，n=2 ，从末尾删除第2个节点后，链表变为：1-> 2-> 3-> 5
+
+        2. 给定一个乱序的单链表的头节点，对该链表中的节点进行排序，尽量考虑时间复杂度和空间复杂度。
+        例如给定链表：1-> 4-> 3-> 2-> 5，排序后链表变为：1-> 2-> 3-> 4-> 5
 
 
+
+
+*/
+
+/*
+public class Solution {
+
+    class ListNode() {
+        private int value;
+        private ListNode next;
+    public ListNode(int value) {
+            this.value = value;
+        }
+        @Override
+        public String toString() {
+            return this.value + this.next;
+        }
+    }
+
+    public static ListNode deleteNode(ListNode head, int n) {
+        if(head == null) {
+            return null;
+        }
+        ListNode fast = head;
+        ListNode slow = head;
+        for (int i = 0; fast != null && i < n;i++) {
+            fast = fast.next;
+        }
+        while(fast != null) {
+            fast = fast.next;
+            slow = slow.next;
+        }
+        if(slow.next.next != null) {
+            slow.next = slow.next.next;
+        } else {
+            slow.next = null;
+        }
+        return head;
+    }
+
+    public static void sort(ListNode head) {
+        ListNode result;
+        if(head == null) {
+            return null;
+        }
+        ListNode middle = findMid(head);
+        ListNode miidle2 = middle.next;
+        middle.next = null;
+        ListNode left = sort(head);
+        ListNode right = sort(middle2);
+        result = mergeSort(left,right);
+    }
+
+    public ListNode mergeSort(ListNode left, ListNode right) {
+        ListNode result = new ListNode(0);
+        while(left != null && right != null) {
+            if(left.value <= right.value) {
+                result.next = left;
+                left = left.next;
+            } else {
+                result.next = right;
+                right = right.next;
+            }
+        }
+        while(left != null) {
+            result.next = left;
+            left = left.next;
+        }
+        while(right != null) {
+            result.next = right;
+            right = right.next;
+        }
+        return result;
+    }
+
+    public ListNode findMid(ListNode head) {
+        ListNode fast = head;
+        ListNode slow = head;
+        while(fast.next != null) {
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+        return slow;
+    }
+
+    public static void main(String[] args) {
+        ListNode node1 = new ListNode(2);
+        ListNode node2 = new ListNode(1);
+        ListNode node3 = new ListNode(3);
+        ListNode node4 = new ListNode(4);
+        ListNode node5 = new ListNode(5);
+        node1.next = node2;
+        node2.next = node3;
+        node3.next = node4;
+        node4.next = node5;
+
+        int n = 2;
+        ListNode result1 = deleteNode(node1,n);
+        System.out.println(result1);
+
+        ListNode result2 = sort(node1);
+        System.out.println(result1);
+    }
+}
+
+
+
+*/

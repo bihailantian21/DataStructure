@@ -35,7 +35,7 @@ public class BinarySearch {
             return -1;
         }*/
 
-        while (left < right) {
+        while (left <= right) {
             int mid = (left + right) / 2;
             int midVal = arr[mid];
 
@@ -64,7 +64,7 @@ public class BinarySearch {
         System.out.println("hello");
 
 
-        while (left < right) {
+        while (left <= right) {
             int mid = (left + right) / 2;
             int midVal = arr[mid];
 

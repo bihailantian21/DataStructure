@@ -31,13 +31,13 @@ public class DeleteNode13 {
         if (head == null || tobeDelete == null) {
             return null;
         }
-        if (tobeDelete.next != null) {
+        if (tobeDelete.next != null) {//不是尾节点
             tobeDelete.value = tobeDelete.next.value;
             tobeDelete.next = tobeDelete.next.next;
-        } else {
-            if (tobeDelete == head) {
+        } else {//尾节点
+            if (tobeDelete == head) {//链表中只有一个节点
                 head = null;
-            } else {
+            } else {//
                 ListNode cur = head;
                 while (cur.next != tobeDelete) {
                     cur = cur.next;

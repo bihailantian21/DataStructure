@@ -68,6 +68,13 @@ public class ShellSort {
         System.out.println(Arrays.toString(arr));*/
 
 
+        /**
+         * 希尔排序    O(n^2)    O(nlogn)    O(1).   不稳定
+         * 在要排序的一组数中，根据某一增量分为若干子序列，并对子序列分别进行直接插入排序。
+         * 然后逐渐将增量减小,并重复上述过程。直至增量为1,此时数据序列基本有序,最后进行插入排序。
+         * 规则：取一步长incre把表中全部数据分成incre个组，所有距离为incre的倍数的记录放在同一组中，
+         * 在各组中进行直接插入排序、然后取第二个布长…、直到incre=1,所有记录已放在同一组中，再进行直接插入排序
+         */
         //缩小增量排序，尽量把小的调到前面，大的调到后面，避免移动很多次的情况
         //希尔排序-对有序序列在插入时采用交换法
         int temp = 0;
@@ -87,6 +94,21 @@ public class ShellSort {
             System.out.println("第"+ (++count) +"轮：");
             System.out.println(Arrays.toString(arr));
         }
+/*
+        for(int gap = arr.length / 2;gap > 0;gap /= 2){
+            for (int i = gap;i < arr.length - 1;i++) {
+                if (arr[i] < arr[i - gap]) {
+                    int temp = arr[i];
+                    int j = i - gap;
+                    for (;(j >= 0)&&(temp < arr[j]);j -= gap) {
+                        arr[j + gap] = arr[j];
+                    }
+                    arr[j + gap] = temp;
+                }
+            }
+        }
+        return arr;*/
+
     }
 
     //希尔排序-对有序序列在插入时采用移动法

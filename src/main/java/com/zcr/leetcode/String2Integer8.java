@@ -177,7 +177,7 @@ public class String2Integer8 {
     }
 
     public static void main(String[] args) {
-        String nums = "42";
+        String nums = "2147483649";
         String2Integer8 string2Integer8 = new String2Integer8();
         int result = string2Integer8.myAtoi(nums);
         System.out.println(nums);

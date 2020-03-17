@@ -5,10 +5,12 @@ package com.zcr.offer.recursionandloop;
  */
 public class RecursionandLoop {
 
+    //标准递归
     public int recursion(int n) {
         return n <= 0 ? 0 : n + recursion(n - 1);
     }
 
+    //动态规划
     public int loop(int n) {
         int result = 0;
         for (int i = 1; i <= n; i++) {

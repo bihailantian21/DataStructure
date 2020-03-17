@@ -32,11 +32,14 @@ public class MaximumSubarray53 {
      * maxToCurr:遍历到某一个元素的时候，包含这个元素的子序列的最大的值是多少。目前的最大值，max(maxtocurr+num[i],num[i])
      * 为什么是等于这个呢？因为如果前面的是一个负数，加上num[i]肯定要比num[i]本身要小，那么就从num[i]开始重新计算最大和
      * max:整体的最大值，max(max, maxtocurr)
+     *
+     * 例：
      * [-1,2,3,-2,1]
      *          初始值
      * maxtocurr:-1    2 5 3 4
      * max:      -1    2 5 5 5
      * 最大值是5。
+     *
      * 初始值为什么是第一个数：而不是0？
      * 如果初始值为0：
      * 初始值-1 -1

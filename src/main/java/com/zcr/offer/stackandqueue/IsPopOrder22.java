@@ -19,6 +19,7 @@ public class IsPopOrder22 {
      * 第三个希望被弹出的数字是3。3位于栈顶，弹出3。
      * 第四个希望被弹出的数字是2。2位于栈顶，弹出2。
      * 第五个希望被弹出的数字是1。1位于栈顶，弹出1。
+     *
      * 例2：
      * 1,2,3,4,5,对于4,3,5,1,2
      * 第一个希望被弹出的数字是4，因此4需要先压入辅助栈里面。压入栈的顺序由压栈顺序已经确定好了，要想把4压入，先得压入1，2，3。4位于栈顶，弹出4。
@@ -68,9 +69,9 @@ public class IsPopOrder22 {
         boolean res = false;
         Stack<Integer> help = new Stack<>();
         int popIndex = 0;
-        for (int i = 0; i < pushA.length; i++) {
+        for (int i = 0; i < pushA.length; i++) {//对于pushA循环,每次如果栈顶元素不等于弹出元素，继续pushA循环（将pushA中元素按顺序加入辅助栈）
             help.push(pushA[i]);
-            while (!help.isEmpty() && help.peek() == popA[popIndex]) {
+            while (!help.isEmpty() && help.peek() == popA[popIndex]) {//如果栈顶元素等于弹出元素，那么就将栈顶元素弹出、弹出元素后移（有可能连续好几个栈顶元素都等于弹出元素，所以用while）
                 help.pop();
                 popIndex++;
             }
@@ -99,6 +100,14 @@ public class IsPopOrder22 {
      * 遍历pushA，使用一个索引popIndex下标记录popA走到的位置，如果pushA[i] = popA[popIndex]，就popIndex++(不处理)；
      * 否则(不相等)，就入栈pushA[i]；
      * 最后全部弹栈，每弹一个，就看stack.pop() == popA[popIndex]，如果不等，就返回false，否则返回true；
+     *
+     *      例1：
+     *      * 1,2,3,4,5,对于4,5,3,2,1
+     *      1 2 3
+     *
+     *      例2：
+     *      * 1,2,3,4,5,对于4,3,5,1,2
+     *      1 2 3
      * @param pushA
      * @param popA
      * @return
