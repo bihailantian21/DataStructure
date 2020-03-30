@@ -1,4 +1,4 @@
-package com.zcr.io;
+
 /*
 
 import io.netty.bootstrap.ServerBootstrap;
@@ -60,7 +60,7 @@ public class TestNetty {
  * reset:UnpooledHeapByteBuf(ridx: 0, widx: 3, cap: 5/5)
  * 有兴趣的可以看一下上一篇分享的ByteBuffer，对比一下，就能发现在Netty中通过独立的读写索引维护，避免读写模式的切换，更加方便了。
  */
-        public static void main(String[]args){
+       /* public static void main(String[]args){
             //创建bytebuf
             ByteBuf buf = Unpooled.copiedBuffer("hello".getBytes());
             System.out.println(buf);

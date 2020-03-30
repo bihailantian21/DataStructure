@@ -126,7 +126,14 @@ public class PowXY50 {
         }
     }
 
-    public double pow2(double x, int n) {
+
+    /**
+     * 二分法
+     * @param x
+     * @param n
+     * @return
+     */
+    public double pow2(double x, int n) {    //x^n
         if (n == 0)
             return 1;
         double half = pow2(x, n / 2);

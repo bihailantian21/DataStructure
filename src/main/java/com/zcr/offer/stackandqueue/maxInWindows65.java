@@ -104,6 +104,16 @@ public class maxInWindows65 {
      * 　　3.如果遇到的数字比队列中最大值小，最小值大，那么将比它小数字不可能成为最大值了，删除较小的数字，放入该数字。
      *　　 4.由于滑动窗口有大小，因此，队列头部的数字如果其下标离滑动窗口末尾的距离大于窗口大小，那么也删除队列头部的数字。
      * 　　注：队列中存放的是下标，以上讲的 队列头部的数字 均指 队列头部的下标所指向的数字。写代码时不要弄混了。
+     *
+     * {[2,3,4],2,6,2,5,1}， {2,[3,4,2],6,2,5,1}， {2,3,[4,2,6],2,5,1}，
+     *  * {2,3,4,[2,6,2],5,1}， {2,3,4,2,[6,2,5],1}， {2,3,4,2,6,[2,5,1]}。
+     *
+     *    0 1 2  3 4 5 6 7
+     *  {[2,3,4],2,6,2,5,1}
+     *  --------
+     *  2      3
+     *  --------
+     *  4
      * @param num
      * @param size
      * @return
@@ -113,13 +123,11 @@ public class maxInWindows65 {
         if(num==null || num.length<=0 || size<=0 || size>num.length)
             return max;
         ArrayDeque<Integer> indexDeque = new ArrayDeque<Integer>();
-
         for(int i=0;i<size-1;i++){
             while(!indexDeque.isEmpty() && num[i]> num[indexDeque.getLast()])
                 indexDeque.removeLast();
             indexDeque.addLast(i);
         }
-
         for(int i=size-1;i<num.length;i++){
             while(!indexDeque.isEmpty() && num[i]> num[indexDeque.getLast()])
                 indexDeque.removeLast();

@@ -128,9 +128,9 @@ public class MoreThanHalfNum_Solution29_2 {
         int count2 = 0;
         for (int i = 0; i < len; i++) {
             if (nums[i] == candi1) {
-                candi1++;
+                count1++;
             } else if (nums[i] == candi2) {
-                candi2++;
+                count2++;
             } else if (count1 == 0) {
                 candi1 = nums[i];
                 count1++;
@@ -138,8 +138,8 @@ public class MoreThanHalfNum_Solution29_2 {
                 candi2 = nums[i];
                 count2++;
             } else {
-                candi1--;
-                candi2--;
+                count1--;
+                count2--;
             }
         }
         //此时选出了两个候选人，需要检查

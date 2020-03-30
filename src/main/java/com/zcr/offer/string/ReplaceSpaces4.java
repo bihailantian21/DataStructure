@@ -15,6 +15,21 @@ public class ReplaceSpaces4 {
      * 然后使用两个指针,新的指针second指向新的字符串的末尾，老指针first指向原来字符串的末尾，
      * 每次检查字符串的末尾如果是空格的话，就添加%20进去，否则把原来的字符串复制到后面；
      *
+     *
+     * We Are Happy.
+     *             f   s
+     *            f   s
+     *           f   s
+     *          f   s
+     *         f   s
+     *        f   s
+     *       f sss
+     *      f s
+     *     f s
+     *    f s
+     *  fsss
+     * We%20Are%20Happy.
+     *
      * @param str
      * @return
      */

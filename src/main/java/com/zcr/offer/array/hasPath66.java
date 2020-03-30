@@ -14,13 +14,7 @@ public class hasPath66 {
      * 比较简单的dfs。
      *
      * 注意边界判断if (cur == str.length-1 && matrix[x * c + y] == str[cur]) return true;。不要判断cur == str.length。。
-     *
-     *
-     *
      * 深度优先算法
-     *
-     *
-     *
      * 首先对所整个矩阵遍历，找到第一个字符，然后向上下左右查找下一个字符，
      * 由于每个字符都是相同的判断方法（先判断当前字符是否相等，再向四周查找），因此采用递归函数。
      *

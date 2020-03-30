@@ -89,7 +89,7 @@ public class Permutation28 {
             res.add(cur.toString());
         } else {
             for (int i = 0; i < schar.length; i++) {
-                if (used[i] || (i > 0 && !used[i - 1] && schar[i] == schar[i - 1])) {//这个已经用过了    前一个没有用过，这一个等于前一个
+                if (used[i] || (i > 0 && !used[i - 1] && schar[i] == schar[i - 1])) {//这个已经用过了   或者    前一个没有用过，这一个等于前一个
                     continue;
                 }
                 used[i] = true;

@@ -27,7 +27,6 @@ public class LeftRotateString42_2 {
         return result.toString();
     }
 
-
     /**
      * 思路二
      * 剑指Offer的解法:
