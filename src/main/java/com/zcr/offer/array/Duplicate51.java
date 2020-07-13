@@ -6,6 +6,7 @@ package com.zcr.offer.array;
  * 请找出数组中任意一个重复的数字。
  *
  * 例如，如果输入长度为7的数组{2,3,1,0,2,5,3}，那么对应的输出是第一个重复的数字2。
+ *                       {T,T,T,T,2,5,3}
  */
 public class Duplicate51 {
 
